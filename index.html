@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackForge - Build Your Launch Deck | Launch Your Product in 28 Days</title>
+    <meta name="description" content="A 28-day cohort teaching W2 employees to launch digital products using $0 tools and AI. Join January 6, 2026.">
+
+    <style>
+        /* ========== CSS VARIABLES & RESET ========== */
+        :root {
+            --primary: #6F8AB7;
+            --accent: #F79F8E;
+            --success: #9BCEA0;
+            --background: #F8F3E2;
+            --highlight: #F0D28A;
+            --text: #2C3E50;
+            --dark: #2C3E50;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* ========== LAYOUT UTILITIES ========== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-dark {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+
+        .section-alt {
+            background-color: var(--white);
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(247, 159, 142, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #f58571;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 159, 142, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text);
+            border: 2px solid var(--text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            font-size: 20px;
+            padding: 20px 40px;
+        }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--background) 0%, #e8e5f0 100%);
+            padding: 120px 0 60px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .urgency-line {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .trust-badge {
+            font-size: 0.95rem;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border-left: 2px solid var(--primary);
+            border-bottom: 2px solid var(--primary);
+            transform: rotate(-45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* ========== SOCIAL PROOF STRIP ========== */
+        .social-proof {
+            background-color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .social-proof-text {
+            color: var(--text);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+            font-weight: 500;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        /* ========== PROBLEM SECTION ========== */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            color: var(--highlight);
+            margin-bottom: 1rem;
+        }
+
+        .problem-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        /* ========== SOLUTION SECTION ========== */
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .deck-card {
+            background: linear-gradient(135deg, var(--primary), #5a7299);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: var(--white);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .deck-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .deck-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .deck-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .deck-stat-label {
+            opacity: 0.8;
+        }
+
+        .deck-stat-value {
+            font-weight: 600;
+        }
+
+        .differentiators {
+            display: grid;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .differentiator {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .differentiator-check {
+            color: var(--success);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .differentiator-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========== LIVE BUILD SECTION ========== */
+        .live-build-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .status-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .status-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .status-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ========== CURRICULUM SECTION ========== */
+        .curriculum-weeks {
+            margin-top: 3rem;
+        }
+
+        .week-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .week-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .week-days {
+            color: var(--text);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .week-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .deliverables h4,
+        .sessions h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .deliverables ul,
+        .sessions ul {
+            list-style: none;
+        }
+
+        .deliverables li,
+        .sessions li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .deliverables li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .sessions li:before {
+            content: "🎯";
+            position: absolute;
+            left: 0;
+        }
+
+        .curriculum-outcome {
+            background-color: var(--highlight);
+            color: var(--dark);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        /* ========== DECK COMPARISON TABLE ========== */
+        .comparison-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 1rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: rgba(111, 138, 183, 0.05);
+        }
+
+        .table-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        /* ========== INSTRUCTOR SECTION ========== */
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .instructor-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        .instructor-bio h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .doing-now {
+            background-color: var(--background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .doing-now h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .credentials {
+            margin-top: 1.5rem;
+        }
+
+        .credentials h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+        }
+
+        .credentials li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .credentials li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .philosophy {
+            background-color: var(--highlight);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        /* ========== TESTIMONIALS SECTION ========== */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-title {
+            color: var(--text);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .testimonial-stats {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-stats div {
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ========== DAILY SHIPPING SECTION ========== */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .calendar-day {
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 1rem 0.5rem;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .day-number {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-ship {
+            font-size: 0.75rem;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .accountability-list {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .accountability-list h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .accountability-list ul {
+            list-style: none;
+        }
+
+        .accountability-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .accountability-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ========== INCLUDED SECTION ========== */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .included-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .included-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .included-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .included-item p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ========== PRICING SECTION ========== */
+        .pricing-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--primary);
+        }
+
+        .pricing-badge {
+            background-color: var(--accent);
+            color: var(--white);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: var(--text);
+            opacity: 0.5;
+            font-size: 1.5rem;
+            display: block;
+        }
+
+        .price-current {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin: 1rem 0;
+        }
+
+        .included-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .included-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .included-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .value-proposition {
+            background-color: var(--background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .value-proposition p {
+            margin-bottom: 0.5rem;
+        }
+
+        .cohort-info {
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .cohort-start {
+            color: var(--primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .spots-available {
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+        }
+
+        .payment-options {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .payment-options h4 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* ========== FAQ SECTION ========== */
+        .faq-container {
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 2rem;
+            background-color: var(--white);
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(111, 138, 183, 0.05);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 2rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ========== FINAL CTA SECTION ========== */
+        .final-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .cta-checklist {
+            list-style: none;
+        }
+
+        .cta-checklist li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .cta-checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 1.25rem;
+        }
+
+        .cta-button-container {
+            text-align: center;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .trust-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .trust-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: var(--highlight);
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .live-build-grid,
+            .instructor-grid,
+            .final-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .week-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-photo {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .price-current {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            .btn-large {
+                padding: 16px 32px;
+                font-size: 18px;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .solution-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== UTILITY CLASSES ========== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build and Launch Your Product in 28 Days Using $0 Tools</h1>
+                <p class="hero-subtitle">A live cohort for W2 employees who want to ship their first digital product—without quitting their job, hiring developers, or spending thousands on software.</p>
+
+                <div class="hero-ctas">
+                    <a href="#pricing" class="btn btn-primary btn-large">Join January Cohort → $1,997</a>
+                    <a href="#curriculum" class="btn btn-secondary">See Full Curriculum</a>
+                </div>
+
+                <p class="urgency-line">Next cohort starts January 6, 2026 • 8 spots available</p>
+                <p class="trust-badge">100% money-back guarantee if you don't launch by Day 28</p>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 2. SOCIAL PROOF STRIP -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="social-proof-text">Trusted by W2 employees from:</p>
+            <div class="company-logos">
+                <span>Google</span>
+                <span>Microsoft</span>
+                <span>Amazon</span>
+                <span>Stripe</span>
+                <span>Meta</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. THE PROBLEM SECTION -->
+    <section class="section section-dark" id="problem">
+        <div class="container">
+            <h2 class="text-center">You're Stuck in Research Mode</h2>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🔍</div>
+                    <h3>Analysis Paralysis</h3>
+                    <p>You've spent months researching Webflow vs WordPress vs Kajabi. You have 47 browser tabs open comparing tools. You still haven't shipped anything.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>The Cost Trap</h3>
+                    <p>Every 'expert' wants you to buy their $297/month tool stack. You're told you need ClickFunnels, ConvertKit, Memberful... $1,000+ before you validate your first dollar.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>No Time Excuse</h3>
+                    <p>You have a W2 job. You can't quit to 'go all in.' You need a system that works in 10-15 hours per week. Not a 'hustle 80 hours' fantasy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THE SOLUTION SECTION -->
+    <section class="section section-alt" id="solution">
+        <div class="container">
+            <h2 class="text-center">Introducing: The Launch Deck Method</h2>
+            <p class="text-center" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem;">Think of launching like building a deck in a card game. You don't need every card—you need the RIGHT cards for YOUR strategy.</p>
+
+            <div class="solution-cards">
+                <div class="deck-card">
+                    <div class="deck-card-title">Landing Page</div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Tools:</span>
+                        <span class="deck-stat-value">GitHub + Netlify</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Cost:</span>
+                        <span class="deck-stat-value">$0</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Setup Time:</span>
+                        <span class="deck-stat-value">2 hours</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Difficulty:</span>
+                        <span class="deck-stat-value">⭐⭐⭐☆☆</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Best For:</span>
+                        <span class="deck-stat-value">First launch</span>
+                    </div>
+                </div>
+
+                <div class="deck-card">
+                    <div class="deck-card-title">Email Capture</div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Tools:</span>
+                        <span class="deck-stat-value">MailerLite</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Cost:</span>
+                        <span class="deck-stat-value">$0</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Setup Time:</span>
+                        <span class="deck-stat-value">2 hours</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Difficulty:</span>
+                        <span class="deck-stat-value">⭐⭐☆☆☆</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Best For:</span>
+                        <span class="deck-stat-value">Building audience</span>
+                    </div>
+                </div>
+
+                <div class="deck-card">
+                    <div class="deck-card-title">Payments</div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Tools:</span>
+                        <span class="deck-stat-value">Gumroad</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Cost:</span>
+                        <span class="deck-stat-value">$0</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Setup Time:</span>
+                        <span class="deck-stat-value">2 hours</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Difficulty:</span>
+                        <span class="deck-stat-value">⭐⭐☆☆☆</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Best For:</span>
+                        <span class="deck-stat-value">Fast validation</span>
+                    </div>
+                </div>
+
+                <div class="deck-card">
+                    <div class="deck-card-title">AI Assistant</div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Tools:</span>
+                        <span class="deck-stat-value">Claude/ChatGPT</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Cost:</span>
+                        <span class="deck-stat-value">$0</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Setup Time:</span>
+                        <span class="deck-stat-value">30 min</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Difficulty:</span>
+                        <span class="deck-stat-value">⭐☆☆☆☆</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="deck-stat-label">Best For:</span>
+                        <span class="deck-stat-value">Everything</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="differentiators">
+                <div class="differentiator">
+                    <div class="differentiator-check">✅</div>
+                    <div class="differentiator-content">
+                        <h3>AI-First Approach</h3>
+                        <p>Use Claude Code to build your landing page in 3 hours, not 3 weeks. No coding knowledge required—AI writes the code for you.</p>
+                    </div>
+                </div>
+
+                <div class="differentiator">
+                    <div class="differentiator-check">✅</div>
+                    <div class="differentiator-content">
+                        <h3>$0 Stack Proof</h3>
+                        <p>I'm using the exact tools I teach to build Parable Forge in real-time. No theory, just proven tools I'm using RIGHT NOW.</p>
+                    </div>
+                </div>
+
+                <div class="differentiator">
+                    <div class="differentiator-check">✅</div>
+                    <div class="differentiator-content">
+                        <h3>W2-Friendly</h3>
+                        <p>Keep your job. Build nights and weekends. Launch in 28 days with just 10-15 hours per week.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LIVE BUILD PROOF SECTION -->
+    <section class="section" id="live-build">
+        <div class="container">
+            <h2 class="text-center">I'm Building Parable Forge Alongside You</h2>
+
+            <div class="live-build-grid">
+                <div class="screenshot-placeholder">
+                    📊 GitHub Commits & Netlify Dashboard<br>
+                    [Live build proof screenshot]
+                </div>
+
+                <div>
+                    <p style="font-size: 1.15rem; line-height: 1.7;">This isn't theory. I'm launching Parable Forge using the exact $0 stack I teach:</p>
+
+                    <div style="background-color: var(--white); padding: 2rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Current Status:</h3>
+                        <ul class="status-list">
+                            <li>Week 2 of my own 28-day launch</li>
+                            <li>Landing page live: parableforge.quest</li>
+                            <li>Built with: Claude Code → GitHub → Netlify</li>
+                            <li>Total cost: $0.74/month (domain only)</li>
+                            <li>First beta signups: 12 families</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 1.5rem; line-height: 1.7;">Every challenge you'll face, I just faced. Every tool I recommend, I'm using right now. This cohort isn't taught from memory—it's documented in real-time.</p>
+
+                    <a href="#" class="btn btn-secondary mt-2">See My Live Build →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CURRICULUM BREAKDOWN -->
+    <section class="section section-alt" id="curriculum">
+        <div class="container">
+            <h2 class="text-center">What You'll Ship in 28 Days</h2>
+
+            <div class="curriculum-weeks">
+                <!-- Week 1 -->
+                <div class="week-card">
+                    <div class="week-header">
+                        <h3 class="week-title">Week 1: Foundation Phase</h3>
+                        <span class="week-days">Days 1-7</span>
+                    </div>
+                    <div class="week-content">
+                        <div class="deliverables">
+                            <h4>📋 What You'll Ship:</h4>
+                            <ul>
+                                <li>Validated product idea (tested with 10 people)</li>
+                                <li>Complete product outline</li>
+                                <li>Your "deck" chosen (tech stack decision)</li>
+                                <li>MVP product created (rough draft)</li>
+                            </ul>
+                        </div>
+                        <div class="sessions">
+                            <h4>Live Sessions (2):</h4>
+                            <ul>
+                                <li>Session 1: Offer Design (Hormozi method)</li>
+                                <li>Session 2: Fast Product Creation (AI-assisted)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="week-card">
+                    <div class="week-header">
+                        <h3 class="week-title">Week 2: Infrastructure Phase</h3>
+                        <span class="week-days">Days 8-14</span>
+                    </div>
+                    <div class="week-content">
+                        <div class="deliverables">
+                            <h4>🌐 What You'll Ship:</h4>
+                            <ul>
+                                <li>Landing page live (custom domain)</li>
+                                <li>Email capture working (MailerLite)</li>
+                                <li>Payment processing ready (Gumroad)</li>
+                                <li>Full sales flow tested</li>
+                            </ul>
+                        </div>
+                        <div class="sessions">
+                            <h4>Live Sessions (2):</h4>
+                            <ul>
+                                <li>Session 3: Landing Pages (AI + GitHub + Netlify)</li>
+                                <li>Session 4: Email & Payments Integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="week-card">
+                    <div class="week-header">
+                        <h3 class="week-title">Week 3: Conversion Phase</h3>
+                        <span class="week-days">Days 15-21</span>
+                    </div>
+                    <div class="week-content">
+                        <div class="deliverables">
+                            <h4>✍️ What You'll Ship:</h4>
+                            <ul>
+                                <li>Sales copy written (landing page)</li>
+                                <li>Email sequences created</li>
+                                <li>Product fully packaged</li>
+                                <li>Launch plan documented</li>
+                            </ul>
+                        </div>
+                        <div class="sessions">
+                            <h4>Live Sessions (2):</h4>
+                            <ul>
+                                <li>Session 5: Sales Copywriting (AI-powered)</li>
+                                <li>Session 6: Pricing Psychology & Packaging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="week-card">
+                    <div class="week-header">
+                        <h3 class="week-title">Week 4: Launch Phase</h3>
+                        <span class="week-days">Days 22-28</span>
+                    </div>
+                    <div class="week-content">
+                        <div class="deliverables">
+                            <h4>🚀 What You'll Ship:</h4>
+                            <ul>
+                                <li>PRODUCT LAUNCHED PUBLICLY</li>
+                                <li>First paying customers</li>
+                                <li>Revenue generated (goal: $500-1,000+)</li>
+                                <li>Iteration plan for next 30 days</li>
+                            </ul>
+                        </div>
+                        <div class="sessions">
+                            <h4>Live Sessions (2):</h4>
+                            <ul>
+                                <li>Session 7: Distribution Strategy</li>
+                                <li>Session 8: Launch Debrief & Next Steps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="curriculum-outcome">
+                By Day 28, you'll have: A launched product, paying customers, and a proven system to scale.
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. THE DECK COMPARISON TABLE -->
+    <section class="section" id="deck-comparison">
+        <div class="container">
+            <h2 class="text-center">Choose Your Starting Deck (We'll Help You Decide)</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Free Stack</th>
+                        <th>Speed Stack</th>
+                        <th>All-in-One</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Landing Page</strong></td>
+                        <td>GitHub + Netlify</td>
+                        <td>Carrd Pro</td>
+                        <td>Stan Store</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td>MailerLite</td>
+                        <td>ConvertKit</td>
+                        <td>Built-in</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost/Month</strong></td>
+                        <td>$0</td>
+                        <td>$50</td>
+                        <td>$29</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Setup Time</strong></td>
+                        <td>3-4 hours</td>
+                        <td>1-2 hours</td>
+                        <td>30 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Learning, $0 budget</td>
+                        <td>Fast iteration</td>
+                        <td>Simplicity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="table-note">Don't know which deck to choose? Week 1, we'll help you pick based on your situation.</p>
+        </div>
+    </section>
+
+    <!-- 8. INSTRUCTOR CREDIBILITY -->
+    <section class="section section-alt" id="instructor">
+        <div class="container">
+            <h2 class="text-center">Taught by Someone Building Right Now, Not From 5 Years Ago</h2>
+
+            <div class="instructor-grid">
+                <div class="instructor-photo">T</div>
+
+                <div class="instructor-bio">
+                    <h3>Tom - The Launch Architect</h3>
+                    <p class="instructor-tagline">"I'm not a millionaire guru. I'm a builder."</p>
+
+                    <p>I'm not a millionaire guru. I'm a 7th-grade teacher with a W2 job who's figured out how to launch digital products using free tools and AI.</p>
+
+                    <div class="doing-now">
+                        <h4>What I'm doing RIGHT NOW:</h4>
+                        <ul class="status-list">
+                            <li>Launching Parable Forge (family storytelling adventures)</li>
+                            <li>Building with the $0 stack I teach</li>
+                            <li>Documenting everything publicly on Twitter</li>
+                            <li>First cohort launches January 6, 2026</li>
+                        </ul>
+                    </div>
+
+                    <div class="credentials">
+                        <h4>Why listen to me?</h4>
+                        <ul>
+                            <li>Teaching background (I actually know how to teach, not just market)</li>
+                            <li>Game design thinking (deck-building framework is my methodology)</li>
+                            <li>Real-time launches (I'm doing this NOW, alongside you)</li>
+                            <li>Anti-guru positioning (no fake scarcity, no $100K income claims)</li>
+                        </ul>
+                    </div>
+
+                    <div class="philosophy">
+                        <strong>My philosophy:</strong> Ship imperfect products fast. Validate with $0. Upgrade strategically. Keep your W2 until the revenue justifies leaving.
+                    </div>
+
+                    <a href="#" class="btn btn-secondary mt-2">Follow My Build on Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. STUDENT OUTCOMES -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Students Ship in 28 Days</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">S</div>
+                    <div class="testimonial-name">Sarah M.</div>
+                    <div class="testimonial-title">Marketing Manager</div>
+                    <p class="testimonial-quote">"I spent 6 months researching tools and never launched. StackForge forced me to ship in 28 days. I validated my course idea and made $847 in Week 1."</p>
+                    <div class="testimonial-stats">
+                        <div><span class="stat-label">Product Launched:</span> "Email Marketing for Freelancers"</div>
+                        <div><span class="stat-label">Tech Stack:</span> Free Stack</div>
+                        <div><span class="stat-label">Time to First Sale:</span> 12 days</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">M</div>
+                    <div class="testimonial-name">Mike T.</div>
+                    <div class="testimonial-title">Software Engineer</div>
+                    <p class="testimonial-quote">"The 'deck building' framework finally made sense. I'm technical but was overthinking everything. Tom showed me the minimal stack that actually works."</p>
+                    <div class="testimonial-stats">
+                        <div><span class="stat-label">Product Launched:</span> "API Documentation Templates"</div>
+                        <div><span class="stat-label">Tech Stack:</span> Speed Stack</div>
+                        <div><span class="stat-label">Time to First Sale:</span> 8 days</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">J</div>
+                    <div class="testimonial-name">Jessica L.</div>
+                    <div class="testimonial-title">Teacher</div>
+                    <p class="testimonial-quote">"I'm not technical at all. Tom walked me through GitHub + Netlify step-by-step. My site is live and I got my first sale on Day 23."</p>
+                    <div class="testimonial-stats">
+                        <div><span class="stat-label">Product Launched:</span> "Classroom Management System"</div>
+                        <div><span class="stat-label">Tech Stack:</span> All-in-One</div>
+                        <div><span class="stat-label">Time to First Sale:</span> 23 days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. DAILY SHIPPING STRUCTURE -->
+    <section class="section section-alt" id="daily-shipping">
+        <div class="container">
+            <h2 class="text-center">Why This Works: You Ship Something Every Single Day</h2>
+            <p class="text-center" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem;">No fluff. No theory. Just daily building in public.</p>
+
+            <div class="calendar-grid">
+                <div class="calendar-day">
+                    <div class="day-number">Day 1</div>
+                    <div class="day-ship">✅ Offer description posted</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 2</div>
+                    <div class="day-ship">✅ Validated with 10 people</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 3</div>
+                    <div class="day-ship">✅ Tech stack chosen</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 4</div>
+                    <div class="day-ship">✅ Product outline done</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 5</div>
+                    <div class="day-ship">✅ First section written</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 6</div>
+                    <div class="day-ship">✅ MVP complete</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">Day 7</div>
+                    <div class="day-ship">✅ Beta testers recruited</div>
+                </div>
+            </div>
+
+            <p class="text-center mt-3" style="font-size: 1.15rem; max-width: 700px; margin-left: auto; margin-right: auto;">Every day, you build one piece of your launch. By Day 28, you have a complete, launched product.</p>
+
+            <div class="accountability-list">
+                <h4>Daily Accountability:</h4>
+                <ul>
+                    <li>Ship in Discord (#daily-ships channel)</li>
+                    <li>Get feedback from cohort</li>
+                    <li>See everyone's progress</li>
+                    <li>Build in public on Twitter (optional)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. WHAT'S INCLUDED -->
+    <section class="section" id="included">
+        <div class="container">
+            <h2 class="text-center">Everything You Need to Launch</h2>
+
+            <div class="included-grid">
+                <div class="included-item">
+                    <div class="included-icon">📚</div>
+                    <h3>8 Live Sessions</h3>
+                    <p>90-minute workshops every Monday & Thursday. All recordings available forever.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">💬</div>
+                    <h3>Private Discord Community</h3>
+                    <p>Daily accountability, peer feedback, direct access to Tom.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">🛠️</div>
+                    <h3>Complete Tool Library</h3>
+                    <p>50+ "deck cards" with setup guides for every tool.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">🤖</div>
+                    <h3>AI Prompt Collection</h3>
+                    <p>200+ prompts for landing pages, copy, product creation.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">📊</div>
+                    <h3>Templates & Frameworks</h3>
+                    <p>Landing page code, email sequences, launch checklists.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">👥</div>
+                    <h3>1-on-1 Deck Review</h3>
+                    <p>30-minute call to customize your tech stack.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">🎓</div>
+                    <h3>Lifetime Alumni Access</h3>
+                    <p>Join monthly office hours and alumni community forever.</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-icon">💰</div>
+                    <h3>Money-Back Guarantee</h3>
+                    <p>Launch by Day 28 or full refund, no questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. PRICING SECTION -->
+    <section class="section section-alt" id="pricing">
+        <div class="container">
+            <h2 class="text-center">Investment</h2>
+
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Founding Cohort Pricing</div>
+
+                    <span class="price-original">$2,997</span>
+                    <span class="price-current">$1,997</span>
+
+                    <ul class="included-list">
+                        <li>8 live sessions with recordings</li>
+                        <li>28-day guided launch program</li>
+                        <li>Private Discord community</li>
+                        <li>AI prompts & templates library</li>
+                        <li>1-on-1 tech stack review</li>
+                        <li>Lifetime alumni access</li>
+                        <li>Money-back guarantee</li>
+                    </ul>
+
+                    <div class="value-proposition">
+                        <p><strong>Total Value:</strong> $4,500+</p>
+                        <p><strong>Your Investment:</strong> $1,997 one-time</p>
+                    </div>
+
+                    <a href="#" class="btn btn-primary btn-large" style="width: 100%; margin-top: 1.5rem;">Join January Cohort</a>
+
+                    <div class="cohort-info">
+                        <span class="cohort-start">Next cohort starts: January 6, 2026</span>
+                        <span class="spots-available">8 spots available</span>
+                    </div>
+
+                    <div class="payment-options">
+                        <h4>Payment Options:</h4>
+                        <div class="payment-option">
+                            💳 One-time payment: <strong>$1,997</strong>
+                        </div>
+                        <div style="margin: 0.5rem 0;">OR</div>
+                        <div class="payment-option">
+                            💳 2 payments: <strong>$1,100</strong> (total $2,200)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FAQ SECTION -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="text-center">Common Questions</h2>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "I'm not technical. Can I still do this?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. 60% of past students had zero coding experience. Claude Code writes the code for you—you just customize it. If you can use Google Docs, you can do this.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "I don't have a product idea yet. Should I still join?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Week 1 is specifically for idea validation. You'll test 3 ideas and pick the winner by Day 7. Come with curiosity, not a finished plan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "I work full-time. Do I have time for this?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This cohort is designed for W2 employees. Expect 10-15 hours/week (2 hours/day). Live sessions are 7pm ET (recording available). You can do this.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "What if I can't attend all live sessions?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every session is recorded and available within 1 hour. Watch async, submit work in Discord, get feedback. You won't fall behind.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "Do I need to buy expensive tools?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. The entire curriculum uses free tools. Optional paid upgrades are discussed in Week 6, but you can launch with $0/month (just domain cost of ~$1/month).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "What if I don't launch by Day 28?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You get a full refund. No questions asked. No hoops to jump through. Just email me and I'll refund you within 24 hours. This only works if you actually ship.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "Is this like Ship 30 for 30?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Similar structure (daily shipping + cohort accountability), but Ship 30 teaches writing. StackForge teaches product launching. Different outcome, same proven model.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "Can I join if I'm outside the US?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Students from 8 countries in last cohort. Live sessions are 7pm ET, but recordings work for any timezone. Discord is async-friendly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "What happens after Day 28?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You join the alumni community (free forever). Monthly office hours, continued Discord access, first dibs on future cohorts, and you'll have a launched product making money.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>❓ "Why only 8 spots?"</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I give personalized feedback on every daily ship. I review every landing page personally. I do 1-on-1 calls. Small cohorts = high-touch experience. Quality > scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. FINAL CTA SECTION -->
+    <section class="section section-dark" id="final-cta">
+        <div class="container">
+            <h2 class="text-center">Ready to Stop Researching and Start Shipping?</h2>
+            <p class="text-center" style="font-size: 1.25rem; margin-bottom: 3rem;">Join 8 other W2 employees who are launching their first product in January.</p>
+
+            <div class="final-cta-grid">
+                <ul class="cta-checklist">
+                    <li>Cohort starts: January 6, 2026</li>
+                    <li>8 spots available (4 remaining)</li>
+                    <li>28-day live program</li>
+                    <li>$1,997 one-time investment</li>
+                    <li>Money-back guarantee</li>
+                </ul>
+
+                <div class="cta-button-container">
+                    <a href="#pricing" class="btn btn-primary btn-large" style="width: 100%;">Join January Cohort → $1,997</a>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <p>Questions? Email me: <a href="mailto:tom@stackforge.quest">tom@stackforge.quest</a></p>
+                <p>Or DM me on Twitter: <a href="#">@yourtwitterhandle</a></p>
+            </div>
+
+            <div class="trust-icons">
+                <div class="trust-icon">
+                    💳 Secure payment via Stripe
+                </div>
+                <div class="trust-icon">
+                    🔒 256-bit SSL encryption
+                </div>
+                <div class="trust-icon">
+                    ♻️ 100% refund if you don't launch
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>StackForge</h4>
+                    <ul>
+                        <li><a href="#">About Tom</a></li>
+                        <li><a href="#">Why I Built This</a></li>
+                        <li><a href="#">My Live Build Log</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Free Launch Checklist</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 StackForge • Built with Claude Code, GitHub, and Netlify in 3 hours.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll (optional enhancement)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for fade-in animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
