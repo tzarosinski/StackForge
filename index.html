@@ -124,10 +124,121 @@
             padding: 20px 40px;
         }
 
+        /* ========== HEADER & NAVIGATION ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 243, 226, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(111, 138, 183, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background-color: var(--accent);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: #f58571;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         /* ========== PROGRESS BAR ========== */
         .progress-bar {
             position: fixed;
-            top: 0;
+            top: 70px;
             left: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--accent), var(--primary));
@@ -215,32 +326,6 @@
             60% {
                 transform: translateX(-50%) translateY(-5px);
             }
-        }
-
-        /* ========== SOCIAL PROOF STRIP ========== */
-        .social-proof {
-            background-color: var(--white);
-            padding: 30px 0;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .social-proof-text {
-            color: var(--text);
-            opacity: 0.7;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .company-logos {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            align-items: center;
-            font-weight: 500;
-            color: var(--text);
-            opacity: 0.8;
         }
 
         /* ========== PROBLEM SECTION ========== */
@@ -1044,6 +1129,46 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--background);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-menu.active {
+                max-height: 400px;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(111, 138, 183, 0.1);
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-cta {
+                display: block;
+                margin: 0 1.5rem;
+            }
+
             h1 {
                 font-size: 2rem;
             }
@@ -1053,7 +1178,7 @@
             }
 
             .hero {
-                padding: 80px 0 40px;
+                padding: 100px 0 40px;
                 min-height: auto;
             }
 
@@ -1147,6 +1272,33 @@
     </style>
 </head>
 <body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#hero" class="logo">
+                <span class="logo-main">StackForge</span>
+                <span class="logo-tagline">Build Your Launch Deck</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#problem">The Problem</a></li>
+                    <li><a href="#solution">The Solution</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#instructor">About Tom</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#pricing" class="nav-cta">Join Cohort</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
@@ -1172,21 +1324,7 @@
         </div>
     </section>
 
-    <!-- 2. SOCIAL PROOF STRIP -->
-    <section class="social-proof">
-        <div class="container">
-            <p class="social-proof-text">Trusted by W2 employees from:</p>
-            <div class="company-logos">
-                <span>Google</span>
-                <span>Microsoft</span>
-                <span>Amazon</span>
-                <span>Stripe</span>
-                <span>Meta</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. THE PROBLEM SECTION -->
+    <!-- 2. THE PROBLEM SECTION -->
     <section class="section section-dark" id="problem">
         <div class="container">
             <h2 class="text-center">You're Stuck in Research Mode</h2>
@@ -1981,8 +2119,33 @@
 
     <!-- JavaScript for Interactions -->
     <script>
-        // Progress Bar
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
         window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Progress Bar
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight - windowHeight;
             const scrolled = window.scrollY;
@@ -1998,9 +2161,13 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        const headerOffset = 70; // Height of fixed header
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
                         });
                     }
                 }
