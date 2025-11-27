@@ -593,44 +593,129 @@
             margin-top: 2rem;
         }
 
-        /* ========== DECK COMPARISON TABLE ========== */
-        .comparison-table {
-            width: 100%;
-            margin-top: 2rem;
-            border-collapse: collapse;
-            background-color: var(--white);
-            border-radius: 8px;
+        /* ========== DECK COMPARISON CARDS ========== */
+        .deck-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .deck-comparison-card {
+            background: linear-gradient(135deg, var(--white) 0%, #f9f9f9 100%);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 3px solid var(--primary);
+            transition: all 0.3s ease;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
-        .comparison-table th {
-            background-color: var(--primary);
+        .deck-comparison-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(111, 138, 183, 0.25);
+        }
+
+        .deck-card-header {
+            background: linear-gradient(135deg, var(--primary), #5a7299);
+            padding: 2rem 1.5rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .deck-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .deck-card-name {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--white);
-            padding: 1.5rem 1rem;
-            text-align: left;
+            margin: 0;
+        }
+
+        .deck-card-cost {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--highlight);
+            color: var(--dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
             font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .comparison-table td {
-            padding: 1.25rem 1rem;
-            border-bottom: 1px solid #e0e0e0;
+        .deck-card-body {
+            padding: 1.5rem;
         }
 
-        .comparison-table tr:last-child td {
+        .deck-card-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .deck-card-stat:last-child {
             border-bottom: none;
         }
 
-        .comparison-table tbody tr:hover {
-            background-color: rgba(111, 138, 183, 0.05);
+        .deck-stat-label {
+            font-weight: 600;
+            color: var(--text);
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
 
-        .table-note {
+        .deck-stat-value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .deck-difficulty-stars {
+            color: var(--highlight);
+            font-size: 1.1rem;
+        }
+
+        .deck-card-footer {
+            background-color: rgba(111, 138, 183, 0.08);
+            padding: 1rem 1.5rem;
             text-align: center;
-            margin-top: 1.5rem;
-            font-style: italic;
+            border-top: 2px solid var(--primary);
+        }
+
+        .deck-best-for {
+            font-size: 0.85rem;
             color: var(--text);
             opacity: 0.8;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .deck-best-for-value {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .deck-cards-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.05rem;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
         }
 
         /* ========== INSTRUCTOR SECTION ========== */
@@ -1249,15 +1334,6 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .comparison-table {
-                font-size: 0.85rem;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.75rem 0.5rem;
-            }
-
             .instructor-grid {
                 grid-template-columns: 1fr;
             }
@@ -1681,55 +1757,107 @@
         </div>
     </section>
 
-    <!-- 7. THE DECK COMPARISON TABLE -->
+    <!-- 7. THE DECK COMPARISON CARDS -->
     <section class="section" id="deck-comparison">
         <div class="container">
             <h2 class="text-center">Choose Your Starting Deck (We'll Help You Decide)</h2>
 
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Free Stack</th>
-                        <th>Speed Stack</th>
-                        <th>All-in-One</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Landing Page</strong></td>
-                        <td>GitHub + Netlify</td>
-                        <td>Carrd Pro</td>
-                        <td>Stan Store</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Email</strong></td>
-                        <td>MailerLite</td>
-                        <td>ConvertKit</td>
-                        <td>Built-in</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cost/Month</strong></td>
-                        <td>$0</td>
-                        <td>$50</td>
-                        <td>$29</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Setup Time</strong></td>
-                        <td>3-4 hours</td>
-                        <td>1-2 hours</td>
-                        <td>30 min</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Best For</strong></td>
-                        <td>Learning, $0 budget</td>
-                        <td>Fast iteration</td>
-                        <td>Simplicity</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="deck-cards-grid">
+                <!-- Free Stack Card -->
+                <div class="deck-comparison-card">
+                    <div class="deck-card-header">
+                        <span class="deck-card-cost">$0</span>
+                        <span class="deck-card-icon">🆓</span>
+                        <h3 class="deck-card-name">Free Stack</h3>
+                    </div>
+                    <div class="deck-card-body">
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Landing Page</span>
+                            <span class="deck-stat-value">GitHub + Netlify</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Email</span>
+                            <span class="deck-stat-value">MailerLite</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Setup Time</span>
+                            <span class="deck-stat-value">3-4 hours</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Difficulty</span>
+                            <span class="deck-stat-value deck-difficulty-stars">⭐⭐⭐☆☆</span>
+                        </div>
+                    </div>
+                    <div class="deck-card-footer">
+                        <div class="deck-best-for">Best For</div>
+                        <div class="deck-best-for-value">Learning & $0 Budget</div>
+                    </div>
+                </div>
 
-            <p class="table-note">Don't know which deck to choose? Week 1, we'll help you pick based on your situation.</p>
+                <!-- Speed Stack Card -->
+                <div class="deck-comparison-card">
+                    <div class="deck-card-header">
+                        <span class="deck-card-cost">$50</span>
+                        <span class="deck-card-icon">⚡</span>
+                        <h3 class="deck-card-name">Speed Stack</h3>
+                    </div>
+                    <div class="deck-card-body">
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Landing Page</span>
+                            <span class="deck-stat-value">Carrd Pro</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Email</span>
+                            <span class="deck-stat-value">ConvertKit</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Setup Time</span>
+                            <span class="deck-stat-value">1-2 hours</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Difficulty</span>
+                            <span class="deck-stat-value deck-difficulty-stars">⭐⭐☆☆☆</span>
+                        </div>
+                    </div>
+                    <div class="deck-card-footer">
+                        <div class="deck-best-for">Best For</div>
+                        <div class="deck-best-for-value">Fast Iteration</div>
+                    </div>
+                </div>
+
+                <!-- All-in-One Card -->
+                <div class="deck-comparison-card">
+                    <div class="deck-card-header">
+                        <span class="deck-card-cost">$29</span>
+                        <span class="deck-card-icon">📦</span>
+                        <h3 class="deck-card-name">All-in-One</h3>
+                    </div>
+                    <div class="deck-card-body">
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Landing Page</span>
+                            <span class="deck-stat-value">Stan Store</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Email</span>
+                            <span class="deck-stat-value">Built-in</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Setup Time</span>
+                            <span class="deck-stat-value">30 minutes</span>
+                        </div>
+                        <div class="deck-card-stat">
+                            <span class="deck-stat-label">Difficulty</span>
+                            <span class="deck-stat-value deck-difficulty-stars">⭐☆☆☆☆</span>
+                        </div>
+                    </div>
+                    <div class="deck-card-footer">
+                        <div class="deck-best-for">Best For</div>
+                        <div class="deck-best-for-value">Simplicity</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="deck-cards-note">💡 Don't know which deck to choose? In Week 1, we'll help you pick based on your situation and goals.</p>
         </div>
     </section>
 
