@@ -120,8 +120,9 @@
         }
 
         .btn-large {
-            font-size: 20px;
-            padding: 20px 40px;
+            font-size: 22px;
+            padding: 24px 48px;
+            font-weight: 700;
         }
 
         /* ========== HEADER & NAVIGATION ========== */
@@ -253,8 +254,22 @@
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, var(--background) 0%, #e8e5f0 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
             padding: 120px 0 60px;
             position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .hero-content {
@@ -263,10 +278,25 @@
             text-align: center;
         }
 
+        .launch-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(111, 138, 183, 0.3);
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4.2rem;
             margin-bottom: 1.5rem;
             color: var(--dark);
+            line-height: 1.1;
         }
 
         .hero-subtitle {
@@ -302,18 +332,30 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
+            text-align: center;
             animation: bounce 2s infinite;
         }
 
+        .scroll-text {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
         .scroll-arrow {
-            width: 24px;
-            height: 24px;
-            border-left: 2px solid var(--primary);
-            border-bottom: 2px solid var(--primary);
+            width: 30px;
+            height: 30px;
+            border-left: 3px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
             transform: rotate(-45deg);
+            margin: 0 auto;
         }
 
         @keyframes bounce {
@@ -1178,12 +1220,17 @@
             }
 
             .hero {
-                padding: 100px 0 40px;
+                padding: 100px 0 60px;
                 min-height: auto;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.4rem;
+            }
+
+            .launch-badge {
+                font-size: 0.7rem;
+                padding: 6px 16px;
             }
 
             .hero-subtitle {
@@ -1306,20 +1353,21 @@
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
+                <span class="launch-badge">🚀 Launching January 6, 2026</span>
                 <h1>Build and Launch Your Product in 28 Days Using $0 Tools</h1>
                 <p class="hero-subtitle">A live cohort for W2 employees who want to ship their first digital product—without quitting their job, hiring developers, or spending thousands on software.</p>
 
                 <div class="hero-ctas">
                     <a href="#pricing" class="btn btn-primary btn-large">Join January Cohort → $1,997</a>
-                    <a href="#curriculum" class="btn btn-secondary">See Full Curriculum</a>
+                    <a href="#curriculum" class="btn btn-secondary btn-large">See Full Curriculum</a>
                 </div>
 
-                <p class="urgency-line">Next cohort starts January 6, 2026 • 8 spots available</p>
-                <p class="trust-badge">100% money-back guarantee if you don't launch by Day 28</p>
+                <p class="urgency-line">8 spots available • 100% money-back guarantee</p>
             </div>
         </div>
 
         <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to learn more</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
