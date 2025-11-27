@@ -385,6 +385,115 @@
             }
         }
 
+        /* ========== $0 STACK SECTION ========== */
+        .stack-section {
+            background: linear-gradient(135deg, rgba(155, 206, 160, 0.15) 0%, var(--background) 100%);
+            padding: 80px 0;
+        }
+
+        .stack-section h2 {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stack-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stack-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stack-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(111, 138, 183, 0.15);
+            border-color: var(--primary);
+        }
+
+        .stack-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .stack-tool {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .stack-cost {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .stack-description {
+            color: var(--text);
+            line-height: 1.6;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .ai-advantage-callout {
+            background: linear-gradient(135deg, var(--highlight), #f5e5a8);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0 2rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 16px rgba(240, 210, 138, 0.3);
+        }
+
+        .ai-advantage-callout p {
+            color: var(--dark);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .stack-total {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .stack-total-cost {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .stack-upgrade-note {
+            font-size: 1rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
         /* ========== PROBLEM SECTION ========== */
         .problem-grid {
             display: grid;
@@ -1351,6 +1460,31 @@
                 width: 100%;
             }
 
+            .stack-section {
+                padding: 60px 0;
+            }
+
+            .stack-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .ai-advantage-callout {
+                padding: 1.5rem;
+            }
+
+            .ai-advantage-callout p {
+                font-size: 1rem;
+            }
+
+            .stack-total-cost {
+                font-size: 1.5rem;
+            }
+
             .calendar-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -1472,7 +1606,50 @@
         </div>
     </section>
 
-    <!-- 2. THE PROBLEM SECTION -->
+    <!-- 2. THE $0 STACK SECTION -->
+    <section class="stack-section" id="stack">
+        <div class="container">
+            <h2>The $0 AI-Powered Stack</h2>
+            <p class="stack-subtitle">Your complete launch system costs $0/month. Seriously.</p>
+
+            <div class="stack-grid">
+                <!-- Landing Page Card -->
+                <div class="stack-card">
+                    <div class="stack-icon">🌐</div>
+                    <div class="stack-tool">AI + GitHub + Netlify</div>
+                    <div class="stack-cost">$0/month</div>
+                    <p class="stack-description">Use Claude Code to generate your site in hours, not weeks. Full control, zero monthly cost.</p>
+                </div>
+
+                <!-- Email & Payments Card -->
+                <div class="stack-card">
+                    <div class="stack-icon">📧</div>
+                    <div class="stack-tool">MailerLite + Gumroad</div>
+                    <div class="stack-cost">$0/month</div>
+                    <p class="stack-description">Capture emails (free up to 1,000 subs) and accept payments (10% fee, no monthly cost).</p>
+                </div>
+
+                <!-- AI Assistant Card -->
+                <div class="stack-card">
+                    <div class="stack-icon">🤖</div>
+                    <div class="stack-tool">Claude / ChatGPT Free</div>
+                    <div class="stack-cost">$0/month</div>
+                    <p class="stack-description">Generate copy, code, and content. The AI skill that compounds as AI improves.</p>
+                </div>
+            </div>
+
+            <div class="ai-advantage-callout">
+                <p>💡 <strong>The AI Advantage:</strong> Once you learn to use AI effectively for launches, you're future-proof. Better AI = better results for YOU. This isn't just about launching one product—it's about mastering the skill of AI-powered product creation.</p>
+            </div>
+
+            <div class="stack-total">
+                <span class="stack-total-cost">Total monthly cost: $0.74 (domain only)</span>
+                <p class="stack-upgrade-note">After you launch and validate, we'll discuss strategic upgrades. But first, let's prove your idea works without financial risk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. THE PROBLEM SECTION -->
     <section class="section section-dark" id="problem">
         <div class="container">
             <h2 class="text-center">You're Stuck in Research Mode</h2>
